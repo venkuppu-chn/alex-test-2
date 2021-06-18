@@ -1,7 +1,7 @@
 name: CORTX reviewdog
 on:  
   label:
-    types: [created] 
+    types: [created, deleted] 
     branches:
       - main
   workflow_dispatch:
