@@ -6,19 +6,8 @@ on:
       - main
   workflow_dispatch:  
 jobs:
-  alex:
-    name: Scan and report the inclusive words
-    if: ${{ github.event.label.name == 'bug' }}
+  github-actions-environment-variables-ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: reviewdog/action-alex@v1
-        with:
-          github_token: ${{ secrets.TOKEN }}
-          filter_mode: added
-          reporter: github-pr-review
-          fail_on_error: false
-#         env:
-#           github_token: ${{secrets.TOKEN}}
-#           INPUT_GITHUB_TOKEN: ${{secrets.TOKEN}}
-#           REVIEWDOG_GITHUB_API_TOKEN: ${{secrets.TOKEN}} 
+      - name: List of the GitHub Actions environment variables on Windows
+        run: env
