@@ -1,15 +1,20 @@
-name: CI
-
-on:
+name: CORTX reviewdog
+on:  
   pull_request:
-    types: [ labeled ]
-
+    types: [labeled]
+    branches:
+      - main
+  workflow_dispatch:
 jobs:
-  build:
+  alex:
+    name: Scan and report the inclusive words
     if: ${{ github.event.label.name == 'bug' }}
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Run a one-line script
-      run: echo Hello, world!
+      - uses: actions/checkout@v2
+      - uses: reviewdog/action-alex@v1
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          filter_mode: added
+          reporter: github-pr-review
+          fail_on_error: false
