@@ -1,6 +1,6 @@
 name: CORTX reviewdog
 on:  
-  pull_request:
+  pull_request_target:
     types: [labeled]
     branches:
       - main
@@ -18,7 +18,7 @@ jobs:
           filter_mode: added
           reporter: github-pr-review
           fail_on_error: false
-        env:
-          github_token: ${{secrets.TOKEN}}
-          INPUT_GITHUB_TOKEN: ${{secrets.TOKEN}}
-          REVIEWDOG_GITHUB_API_TOKEN: ${{secrets.TOKEN}} 
+#         env:
+#           github_token: ${{secrets.TOKEN}}
+#           INPUT_GITHUB_TOKEN: ${{secrets.TOKEN}}
+#           REVIEWDOG_GITHUB_API_TOKEN: ${{secrets.TOKEN}} 
