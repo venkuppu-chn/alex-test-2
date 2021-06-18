@@ -16,5 +16,5 @@ jobs:
         with:
           github_token: ${{ secrets.TOKEN }}
           filter_mode: added
-          reporter: github-pr-check
+          reporter: github-check
           fail_on_error: false
