@@ -1,5 +1,3 @@
 # alex-test
 
 Mental
-
-Handicapped
