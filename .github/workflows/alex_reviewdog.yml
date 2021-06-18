@@ -1,13 +1,23 @@
 name: CORTX reviewdog
 on:  
-  pull_request_target:
-    types: [labeled]
+  pull_request:
     branches:
       - main
-  workflow_dispatch:  
+  workflow_dispatch:
 jobs:
-  github-actions-environment-variables-ubuntu:
+  alex:
+    name: Scan and report the inclusive words
     runs-on: ubuntu-latest
-    steps:
-      - name: List of the GitHub Actions environment variables on Windows
-        run: env
+    steps:  
+      - uses: actions/checkout@v2
+      - uses: reviewdog/action-alex@v1
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          filter_mode: added
+          reporter: github-pr-review
+          fail_on_error: false
+      - name: "Print Env"
+        run: |
+          echo $GITHUB_JOB
+          echo $GITHUB_REF
+          echo $GITHUB_SHA
