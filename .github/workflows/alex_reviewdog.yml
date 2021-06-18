@@ -14,4 +14,4 @@ jobs:
         with:
           repo-token: ${{ secrets.TOKEN }}
           pr-message: |-
-              Congrats on working with cortx
+             Congrats on cortx
