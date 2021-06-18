@@ -4,11 +4,7 @@ on:
     types: [labeled]
     branches:
       - main
-  workflow_dispatch:
-permissions:
-  contents: read
-  pull-requests: write
-  
+  workflow_dispatch:  
 jobs:
   alex:
     name: Scan and report the inclusive words
