@@ -1,18 +1,15 @@
-name: CORTX reviewdog
-on:  
-  pull_request_target:
+name: CI
+
+on:
+  pull_request:
     branches:
       - main
-  workflow_dispatch:
+
 jobs:
-  alex:
-    name: Scan and report the inclusive words
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: reviewdog/action-alex@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          filter_mode: added
-          reporter: github-pr-review
-          fail_on_error: false
+    - uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: echo Hello, world!
