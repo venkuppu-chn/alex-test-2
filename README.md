@@ -2,4 +2,3 @@
 
 Mental
 Handicapped
-Mental
