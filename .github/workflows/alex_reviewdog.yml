@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: venkuppu-chn/action-alex-nightly@v2.0.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
           filter_mode: added
           reporter: github-pr-review
           fail_on_error: false
