@@ -1,6 +1,6 @@
 name: CORTX reviewdog
 on:  
-  pull_request_target:
+  pull_request:
     branches:
       - main
   workflow_dispatch:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: venkuppu-chn/action-alex-nightly@v2.0.0
+      - uses: venkuppu-chn/action-alex-nightly@v2.0.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           filter_mode: added

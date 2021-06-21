@@ -4,4 +4,3 @@ Handicapped
 Mental
 Mental
 Mental
-
