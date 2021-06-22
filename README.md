@@ -3,4 +3,3 @@ Mental
 Handicapped
 Mental
 Mental
-Mental
