@@ -1,3 +1,2 @@
 # alex-test
-Mental
-Handicapped
+
