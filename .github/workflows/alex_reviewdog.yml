@@ -1,12 +1,14 @@
 name: CORTX reviewdog
 on:  
   pull_request_target:
+    types: [ labeled ]
     branches:
       - main
   workflow_dispatch:
 jobs:
   alex:
     name: Scan and report the inclusive words
+    if: ${{ github.event.label.name == 'bug' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
