@@ -8,7 +8,7 @@ on:
 jobs:
   alex:
     name: Scan and report the inclusive words
-    if: ${{ github.event.label.name == 'cla-signed' }}
+    if: ${{ github.event.label.name == 'cla-signed' || github.event.action == 'synchronize' }}
     runs-on: ubuntu-latest
     steps:
       - name: Print GitHub event action
