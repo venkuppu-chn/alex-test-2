@@ -11,6 +11,9 @@ jobs:
     if: ${{ github.event.label.name == 'cla-signed' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Print GitHub event action
+        run: |
+          echo "${{ github.event.action }}"
       - uses: actions/checkout@v2
       - uses: reviewdog/action-alex@v1
         with:
