@@ -8,11 +8,11 @@ on:
 jobs:
   alex:
     name: Scan and report the inclusive words
-    if: ${{ github.event.label.name == 'bug' }}
+    if: ${{ github.event.label.name == 'cla-signed' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: venkuppu-chn/action-alex-nightly@v2.0.1
+      - uses: reviewdog/action-alex@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           filter_mode: added
