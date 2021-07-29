@@ -5,8 +5,6 @@ on:
       - main
 jobs:
   dispatch:
-    strategy:
-      matrix:
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
