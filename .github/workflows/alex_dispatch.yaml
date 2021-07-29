@@ -1,0 +1,16 @@
+name: Dispatch event for Alex
+on:
+  pull_request_target:
+    branches:
+      - main
+jobs:
+  dispatch:
+    strategy:
+      matrix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          event-type: alex-event
