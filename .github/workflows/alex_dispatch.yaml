@@ -3,7 +3,7 @@ on:
   pull_request_target:
     branches:
       - main
-jobs:
+jobs:  
   dispatch:
     runs-on: ubuntu-latest
     steps:
