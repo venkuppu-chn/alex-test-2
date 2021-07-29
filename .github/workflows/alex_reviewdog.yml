@@ -2,6 +2,7 @@ name: CORTX reviewdog
 on:  
   repository_dispatch:
     types: [alex-event]
+  pull_request:
   workflow_dispatch:
 jobs:
   alex:
