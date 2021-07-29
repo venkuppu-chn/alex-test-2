@@ -2,4 +2,3 @@
 Sex
 Mental
 Handicapped
-Mental
