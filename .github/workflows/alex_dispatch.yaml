@@ -3,8 +3,8 @@ on:
   pull_request_target:
     branches:
       - main
-jobs:
-  dispatch:
+jobs:  
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
