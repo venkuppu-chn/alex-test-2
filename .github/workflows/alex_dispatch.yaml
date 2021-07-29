@@ -10,5 +10,5 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.PERSONAL_TOKEN }}
           event-type: alex-event
