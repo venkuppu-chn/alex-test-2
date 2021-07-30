@@ -1,7 +1,8 @@
 name: CORTX reviewdog
 on:  
-  repository_dispatch:
-    types: [alex-event]
+  workflow_run:
+    workflows: ["Dispatch event for Alex"]
+    types: [completed]
   workflow_dispatch:
 jobs:
   alex:
