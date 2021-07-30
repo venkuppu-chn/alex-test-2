@@ -1,0 +1,15 @@
+build.yml
+
+name: CI build
+
+on: [pull_request_target]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Dispatch the event for Alex
+      run: echo "Dispatched the event"
