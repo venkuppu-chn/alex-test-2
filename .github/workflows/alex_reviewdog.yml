@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_REF: refs/pull/30/merge
-      CI_PULL_REQUEST: 30
+      CI_PULL_REQUEST: 31
       CI_COMMIT: ${{ github.event.workflow_run.head_commit.id }}
       CI_REPO_OWNER: seagate
       CI_REPO_NAME: alex-test
