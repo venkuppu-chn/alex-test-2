@@ -9,6 +9,9 @@ jobs:
     name: Scan and report the inclusive words
     # if: ${{ github.event.label.name == 'cla-signed' || github.event.action == 'synchronize' }}
     runs-on: ubuntu-latest
+    env:
+      GITHUB_REF: refs/pull/30/merge
+      GITHUB_SHA: ${{ github.event.workflow_run.head_commit.id }}
     steps:
       - uses: actions/checkout@v2
       - name: See commit sha on head branch
