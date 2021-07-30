@@ -11,6 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: See commit sha on head branch
+        run: echo ${{ github.event.workflow_run.head_commit.id }}
+      - name: see whole payload
+        run: echo "${{ toJSON(github.event.workflow_run) }}"
+      
       - uses: reviewdog/action-alex@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
