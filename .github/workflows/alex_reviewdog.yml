@@ -10,12 +10,12 @@ jobs:
     # if: ${{ github.event.label.name == 'cla-signed' || github.event.action == 'synchronize' }}
     runs-on: ubuntu-latest
     env:
-      GITHUB_REF: refs/pull/30/merge
+      GITHUB_REF: refs/pull/31/merge
       CI_PULL_REQUEST: 31
       CI_COMMIT: ${{ github.event.workflow_run.head_commit.id }}
       CI_REPO_OWNER: seagate
       CI_REPO_NAME: alex-test
-      GITHUB_SHA: ${{ github.event.workflow_run.head_commit.id }}
+      #GITHUB_SHA: ${{ github.event.workflow_run.head_commit.id }}
     steps:
       - uses: actions/checkout@v2
       - name: See commit sha on head branch
