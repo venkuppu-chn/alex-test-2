@@ -8,11 +8,15 @@ on:
       - completed
 
 jobs:
-  notify:
+  alex:
+    name: Scan and report the inclusive words
+    # if: ${{ github.event.label.name == 'cla-signed' || github.event.action == 'synchronize' }}
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-
-      - name: Notify Alex
-        run: echo "Notify the event"
+      - uses: reviewdog/action-alex@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          filter_mode: added
+          reporter: github-pr-review
+          fail_on_error: false
