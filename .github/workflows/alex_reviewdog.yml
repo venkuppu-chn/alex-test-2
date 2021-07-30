@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_REF: refs/pull/30/merge
+      CI_PULL_REQUEST: 30
+      CI_COMMIT: ${{ github.event.workflow_run.head_commit.id }}
+      CI_REPO_OWNER: seagate
+      CI_REPO_NAME: alex-test
       GITHUB_SHA: ${{ github.event.workflow_run.head_commit.id }}
     steps:
       - uses: actions/checkout@v2
