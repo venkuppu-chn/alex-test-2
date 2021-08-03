@@ -23,5 +23,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           filter_mode: added
           #reporter: github-pr-review
+          #reporter: github-pr-check
           reporter: github-check
           fail_on_error: false
