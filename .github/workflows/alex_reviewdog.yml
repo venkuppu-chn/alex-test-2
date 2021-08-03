@@ -10,8 +10,8 @@ jobs:
     # if: ${{ github.event.label.name == 'cla-signed' || github.event.action == 'synchronize' }}
     runs-on: ubuntu-latest
     env:
-      GITHUB_REF: refs/pull/31/merge
-      CI_PULL_REQUEST: 31
+      #GITHUB_REF: refs/pull/31/merge
+      CI_PULL_REQUEST: 33
       CI_COMMIT: ${{ github.event.workflow_run.head_commit.id }}
       CI_REPO_OWNER: seagate
       CI_REPO_NAME: alex-test
