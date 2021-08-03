@@ -4,8 +4,8 @@ name: CORTX inclusive words scan
 on:
   # Trigger the workflow on pull request labeled as cla-signed
   # and synchronize for the main branch
-  pull_request_target:
-    #types: [ ready_for_review, synchronize ]
+  pull_request:
+    types: [ review_requested, ready_for_review, synchronize ]
     branches:
       - main
   # Trigger the workflow on demand
@@ -18,11 +18,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: get the count of requested reviewers
+        run: |
+          length=$(echo $requested_reviewers | jq '. | length')
+          echo "length = $length"
+        env:
+          requested_reviewers: ${{ toJson(github.event.pull_request.requested_reviewers) }}
+
       - uses: reviewdog/action-alex@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           filter_mode: added
-          #reporter: github-pr-review
-          reporter: github-pr-check
+          reporter: github-pr-review
+          #reporter: github-pr-check
           #reporter: github-check
           fail_on_error: false
