@@ -4,8 +4,8 @@ name: CORTX inclusive words scan
 on:
   # Trigger the workflow on pull request labeled as cla-signed
   # and synchronize for the main branch
-  pull_request:
-    types: [ ready_for_review, synchronize ]
+  pull_request_target:
+    #types: [ ready_for_review, synchronize ]
     branches:
       - main
   # Trigger the workflow on demand
@@ -22,5 +22,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           filter_mode: added
-          reporter: github-pr-review
+          #reporter: github-pr-review
+          reporter: github-check
           fail_on_error: false
