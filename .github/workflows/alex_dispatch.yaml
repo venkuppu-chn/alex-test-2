@@ -12,4 +12,4 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_TOKEN }}
           event-type: alex-event
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+          client-payload: '{"github": ${{ toJson(github) }}}'
