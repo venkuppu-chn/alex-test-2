@@ -1,12 +1,12 @@
 name: CORTX reviewdog
 on:  
   pull_request:
-    types: [review_requested, ready_for_review]
+    types: [labeled, synchronize]
 
 jobs:
   alex:
     name: Scan and report the inclusive words
-    # if: ${{ github.event.label.name == 'cla-signed' || github.event.action == 'synchronize' }}
+    if: ${{ github.event.label.name == 'small' || github.event.action == 'synchronize' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
