@@ -1,9 +1,9 @@
 version: 1
 labels:
-- label: "S"
+- label: "small"
   size-below: 10
-- label: "M"
+- label: "medium"
   size-above: 9
   size-below: 100
-- label: "L"
+- label: "large"
   size-above: 100
