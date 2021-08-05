@@ -1,0 +1,4 @@
+# Labels: define labels for Issues and Pull Requests
+labels:
+  - name: bug
+    color: CC0000
