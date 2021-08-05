@@ -1,0 +1,6 @@
+line-addition-labels:
+  - greater-than: 1
+    less-than: 10
+    label: few-lines
+  - greater-than-equal: 1000
+    label: too-many-lines
