@@ -1,7 +1,7 @@
 # Labels: define labels for Issues and Pull Requests
 labels:
   - name: bug
-    color: CC0000
+    color: ff7619
 
 collaborators:
   - username: venkuppu-chn
