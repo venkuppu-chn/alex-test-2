@@ -5,7 +5,7 @@ on:
   # Trigger the workflow on pull request labeled as cla-signed
   # and synchronize for the main branch
   pull_request:
-    types: [ opened, labeled, synchronize ]
+    types: [ opened, synchronize ]
     branches:
       - main
   # Trigger the workflow on demand
