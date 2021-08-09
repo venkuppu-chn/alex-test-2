@@ -1,1 +1,7 @@
 alex: ["*"]
+line-changes-labels:
+  - greater-than: 300
+    less-than-equal: 1000
+    label: medium
+  - greater-than: 1000
+    label: large
