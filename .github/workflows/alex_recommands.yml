@@ -20,7 +20,7 @@ jobs:
     - name: Alex Scan Report
       uses: brown-ccv/alex-recommends@v1.1.2
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         message_id: 'cortx'
         no_binary: true
         profanity_sureness: 0
