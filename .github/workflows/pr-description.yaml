@@ -40,9 +40,10 @@ jobs:
                 temp_name = './.github/pr-template/document_template.md'
             else:
                 temp_name = './.github/pr-template/feature_template.md'
-                
+            with open(temp_name, 'r') as f_obj:
+                body = f_obj.read()
             payload = {
-              "body": "New title"
+              "body": body
             }
             r = requests.patch(url, auth=(user, token), json=payload)
             print (r.json())
@@ -53,10 +54,4 @@ jobs:
             USER: "${{ secrets.USERNAME }}"
             TOKEN: "${{ secrets.PERSONAL_TOKEN }}"
             
-       - name: Print Template
-         run: 
-            # echo "${{ steps.template.outputs.content }}"
-            echo "${{ github.event.number }}"
-            echo "${{ github.repository }}"
-         
 
