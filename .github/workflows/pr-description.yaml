@@ -12,21 +12,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - uses: actions/checkout@v2
-       - name: Read Template File
-         id: template
-         uses: juliangruber/read-file-action@v1
-         with:
-            path: ./.github/pull_request_template.md
+       
        - name: Print Template
          run: echo "${{ steps.template.outputs.content }}"
        - id: files
          uses: jitterbit/get-changed-files@v1
-       - run: |
-            echo ${{ steps.files.outputs.all }} | grep -E '.txt|.md' | wc -l
+       - name: Set the flag for template
+         run: |
+            echo ${{ steps.files.outputs.all }} > file_changed.txt
             
-    
-
-#       - uses: riskledger/update-pr-description@dev
-#         with:
-#           body: ${{ description }} 
-#           token: ${{ secrets.GITHUB_TOKEN }}
+       - name: Selecting the template
+         id: template_name
+         run: |
+            import os
+            temp_name = ''
+            with open('file_changed.txt', 'r') as f_obj:
+                file_list = f_obj.read() 
+            if '.txt' in file_list:
+                temp_name = './.github/pull_request_template.md'
+            else:
+                temp_name = './.github/pull_request_template_1.md'
+            print("::set-output name=temp_file::{temp_name}")
+         shell: python
+         
+       - name: Read Template File
+         id: template
+         uses: juliangruber/read-file-action@v1
+         with:
+            path: ${steps.template_name.outputs.temp_file}
+            
+       - name: Print Template
+         run: echo "${{ steps.template.outputs.content }}"
