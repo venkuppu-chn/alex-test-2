@@ -15,7 +15,7 @@ jobs:
          id: template
          uses: juliangruber/read-file-action@v1
          with:
-            path: ./package.json
+            path: ./.github/pull_request_template.md
        - name: Print Template
          run: echo "${{ steps.template.outputs.content }}"
 
