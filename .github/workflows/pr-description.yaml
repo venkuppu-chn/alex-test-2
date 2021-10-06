@@ -2,14 +2,15 @@ name: PR Template Update
 
 on:
   pull_request:
-    types: [ labeled, opened, synchronize ]
+    # types: [ labeled, opened, synchronize ]
+    types: [ opened, synchronize ]
     branches:
       - main
   workflow_dispatch:
 
 jobs:
   pr-template:
-    if: ${{ github.event.label.name == 'small' || github.event.action == 'synchronize' }}
+    # if: ${{ github.event.label.name == 'small' || github.event.action == 'synchronize' }}
     runs-on: ubuntu-latest
     steps:
        - uses: actions/checkout@v2       
@@ -43,7 +44,9 @@ jobs:
             path: "${{steps.template_name.outputs.temp_file}}"
             
        - name: Print Template
-         run: echo "${{ steps.template.outputs.content }}"
+         run: 
+            echo "${{ steps.template.outputs.content }}"
+            echo "${{ github.event.number }}"
          
        - name: Update PR Template
          uses: riskledger/update-pr-description@v2
