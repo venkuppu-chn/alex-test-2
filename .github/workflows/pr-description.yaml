@@ -34,10 +34,6 @@ jobs:
                 temp_name = './.github/pull_request_template_1.md'
             print(f"::set-output name=temp_file::{temp_name}")
          shell: python
-         
-       - name: Print template file
-         run: |
-            echo "${{steps.template_name.outputs.temp_file}}"
             
        - name: Read Template File
          id: template
@@ -47,3 +43,9 @@ jobs:
             
        - name: Print Template
          run: echo "${{ steps.template.outputs.content }}"
+         
+       - name: Update PR Template
+         uses: riskledger/update-pr-description@dev
+         with:
+            body: ${{ steps.template.outputs.content }}
+            token: ${{ secrets.GITHUB_TOKEN }}
