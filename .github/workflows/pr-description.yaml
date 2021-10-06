@@ -45,7 +45,9 @@ jobs:
          env: 
             REPO: "${{ github.repository }}"
             PR_NUMBER: "${{ github.event.number }}"
-            USER: "${{ secrets.USERNAME }}"
-            TOKEN: "${{ secrets.PERSONAL_TOKEN }}"
+            # USER: "${{ secrets.USERNAME }}"
+            USER: "${{ github.actor }}"
+            TOKEN: "${{ github.token }}"
+            #TOKEN: "${{ secrets.PERSONAL_TOKEN }}"
             
 
