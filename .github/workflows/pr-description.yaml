@@ -22,9 +22,7 @@ jobs:
        - id: files
          uses: jitterbit/get-changed-files@v1
        - run: |
-            for changed_file in ${{ steps.files.outputs.all }}; do
-              echo "Do something with this ${changed_file}."
-            done
+            echo ${{ steps.files.outputs.all }}
     
 
 #       - uses: riskledger/update-pr-description@dev
