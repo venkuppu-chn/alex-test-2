@@ -19,6 +19,13 @@ jobs:
             path: ./.github/pull_request_template.md
        - name: Print Template
          run: echo "${{ steps.template.outputs.content }}"
+       - id: files
+         uses: jitterbit/get-changed-files@v1
+       - run: |
+            for changed_file in ${{ steps.files.outputs.all }}; do
+              echo "Do something with this ${changed_file}."
+            done
+    
 
 #       - uses: riskledger/update-pr-description@dev
 #         with:
