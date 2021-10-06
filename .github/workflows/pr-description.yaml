@@ -35,6 +35,10 @@ jobs:
             print("::set-output name=temp_file::{temp_name}")
          shell: python
          
+       - name: Print template file
+         run: |
+            echo ${steps.template_name.outputs.temp_file}
+            
        - name: Read Template File
          id: template
          uses: juliangruber/read-file-action@v1
