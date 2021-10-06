@@ -49,4 +49,4 @@ jobs:
          uses: riskledger/update-pr-description@v2
          with:
             body: ${{ steps.template.outputs.content }}
-            token: ${{ secrets.GITHUB_TOKEN }}
+            token: ${{ secrets.PERSONAL_TOKEN }}
