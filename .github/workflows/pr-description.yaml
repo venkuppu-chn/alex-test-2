@@ -26,21 +26,32 @@ jobs:
          id: template_name
          run: |
             import os
+            import requests
             temp_name = ''
-            print (os.environ['REPO'])
-            print (os.environ['PR_NUMBER'])
+            repo = os.environ['REPO']
+            pr_number = os.environ['PR_NUMBER']
+            user = os.environ['USER']
+            token = os.environ['TOKEN']
+            url = "https://api.github.com/repos/%s/pulls/%s" %(repo, pr_number)
+            
             with open('file_changed.txt', 'r') as f_obj:
                 file_list = f_obj.read() 
             if '.txt' in file_list or '.md' in file_list:
                 temp_name = './.github/pr-template/document_template.md'
             else:
                 temp_name = './.github/pr-template/feature_template.md'
-
-            print(f"::set-output name=temp_file::{temp_name}")
+                
+            payload = {
+              "body": "New title"
+            }
+            r = requests.patch(url, auth=(user, token), json=payload)
+            print (r.json())
          shell: python
          env: 
             REPO: "${{ github.repository }}"
             PR_NUMBER: "${{ github.event.number }}"
+            USER: "${{ secrets.USERNAME }}"
+            TOKEN: "${{ secrets.PERSONAL_TOKEN }}"
             
        - name: Print Template
          run: 
