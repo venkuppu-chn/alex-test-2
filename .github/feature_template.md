@@ -1,20 +1,10 @@
 # Problem Statement
 - Problem statement
 
-# Fixes
--  For Bug, Describe the fix here.
--  For Feature, Post the link for design
-
-## Type of change
-- Please delete options that are not relevant.
-
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-
+# Solution Description
+- Describe the changes in details. Explain the solution you have provided.
 
 # Implementation:
-
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
@@ -24,19 +14,13 @@
 - [ ] New and existing unit tests pass locally with my changes
 - [ ] Test Cases cover  Path and Scalability
 - [ ] Testing was performed with RPM for both Happy and Non-Happy path
+- [ ] JIRA number/GitHub Issue added in PR title
+- [ ] Jira and state/status is updated and JIRA is updated with PR link
 
 # Error Handling and Logging
-
 - [ ] Is error handling done the correct way?
 - [ ] Are error messages user-friendly?
 
 # Impact Analysis
 - [ ] Will this code change impact different teams?
 
-
-# Review Checklist 
-
-- [ ] JIRA number/GitHub Issue added to PR
-- [ ] PR is self reviewed
-- [ ] Jira and state/status is updated and JIRA is updated with PR link
-- [ ] Check if the description is clear and explained
