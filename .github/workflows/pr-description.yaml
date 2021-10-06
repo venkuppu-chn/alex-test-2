@@ -33,6 +33,9 @@ jobs:
             user = os.environ['USER']
             token = os.environ['TOKEN']
             url = "https://api.github.com/repos/%s/pulls/%s" %(repo, pr_number)
+            file_url = '%s/files' %url
+            files_list = requests.get(url, auth=(user, token))
+            print (files_list)
             
             with open('file_changed.txt', 'r') as f_obj:
                 file_list = f_obj.read() 
