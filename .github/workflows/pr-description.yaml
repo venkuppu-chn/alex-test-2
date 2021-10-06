@@ -47,6 +47,7 @@ jobs:
          run: 
             echo "${{ steps.template.outputs.content }}"
             echo "${{ github.event.number }}"
+            echo "${{ github.repository }}"
          
        - name: Update PR Template
          uses: riskledger/update-pr-description@v2
