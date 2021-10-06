@@ -37,13 +37,13 @@ jobs:
          
        - name: Print template file
          run: |
-            echo ${steps.template_name.outputs.temp_file}
+            echo "${{steps.template_name.outputs.temp_file}}"
             
        - name: Read Template File
          id: template
          uses: juliangruber/read-file-action@v1
          with:
-            path: ${steps.template_name.outputs.temp_file}
+            path: "${{steps.template_name.outputs.temp_file}}"
             
        - name: Print Template
          run: echo "${{ steps.template.outputs.content }}"
