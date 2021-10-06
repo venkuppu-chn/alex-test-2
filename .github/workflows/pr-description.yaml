@@ -2,7 +2,11 @@ name: PR Template Update
 
 on:
   pull_request_target:
-    # types: [ labeled, opened, synchronize ]
+    types: [ opened, synchronize ]
+    branches:
+      - main
+  
+  pull_request:
     types: [ opened, synchronize ]
     branches:
       - main
