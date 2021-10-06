@@ -32,7 +32,7 @@ jobs:
                 temp_name = './.github/pull_request_template.md'
             else:
                 temp_name = './.github/pull_request_template_1.md'
-            print("::set-output name=temp_file::{temp_name}")
+            print(f"::set-output name=temp_file::{temp_name}")
          shell: python
          
        - name: Print template file
