@@ -22,7 +22,8 @@ jobs:
        - id: files
          uses: jitterbit/get-changed-files@v1
        - run: |
-            echo ${{ steps.files.outputs.all }}
+            echo ${{ steps.files.outputs.all }} | grep -E '.txt|.md' | wc -l
+            
     
 
 #       - uses: riskledger/update-pr-description@dev
