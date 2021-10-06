@@ -1,0 +1,51 @@
+name: PR Template Update
+
+on:
+  pull_request:
+    types: [ opened, synchronize ]
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    steps:
+       - uses: actions/checkout@v2
+       
+       - name: Print Template
+         run: echo "${{ steps.template.outputs.content }}"
+       - id: files
+         uses: jitterbit/get-changed-files@v1
+       - name: Set the flag for template
+         run: |
+            echo ${{ steps.files.outputs.all }} > file_changed.txt
+            
+       - name: Selecting the template
+         id: template_name
+         run: |
+            import os
+            temp_name = ''
+            with open('file_changed.txt', 'r') as f_obj:
+                file_list = f_obj.read() 
+            if '.txt' in file_list or '.md' in file_list:
+                temp_name = './.github/pr-template/document_template.md'
+            else:
+                temp_name = './.github/pr-template/feature_template.md'
+            print(f"::set-output name=temp_file::{temp_name}")
+         shell: python
+            
+       - name: Read Template File
+         id: template
+         uses: juliangruber/read-file-action@v1
+         with:
+            path: "${{steps.template_name.outputs.temp_file}}"
+            
+       - name: Print Template
+         run: echo "${{ steps.template.outputs.content }}"
+         
+       - name: Update PR Template
+         uses: riskledger/update-pr-description@v2
+         with:
+            body: ${{ steps.template.outputs.content }}
+            token: ${{ secrets.GITHUB_TOKEN }}
