@@ -27,6 +27,8 @@ jobs:
          run: |
             import os
             temp_name = ''
+            print (os.environ['REPO'])
+            print (os.environ['PR_NUMBER'])
             with open('file_changed.txt', 'r') as f_obj:
                 file_list = f_obj.read() 
             if '.txt' in file_list or '.md' in file_list:
@@ -36,21 +38,14 @@ jobs:
 
             print(f"::set-output name=temp_file::{temp_name}")
          shell: python
-            
-       - name: Read Template File
-         id: template
-         uses: juliangruber/read-file-action@v1
-         with:
-            path: "${{steps.template_name.outputs.temp_file}}"
+         env: 
+            REPO: "${{ github.repository }}"
+            PR_NUMBER: "${{ github.event.number }}"
             
        - name: Print Template
          run: 
-            echo "${{ steps.template.outputs.content }}"
+            # echo "${{ steps.template.outputs.content }}"
             echo "${{ github.event.number }}"
             echo "${{ github.repository }}"
          
-       - name: Update PR Template
-         uses: riskledger/update-pr-description@v2
-         with:
-            body: ${{ steps.template.outputs.content }}
-            token: ${{ secrets.GITHUB_TOKEN }}
+
