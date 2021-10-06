@@ -2,7 +2,7 @@
 - Please include a summary of the change and which documentation is fixed.
 
 # Community Impact if any
-Please describe any Community facing impact of this change. This can be positive or negative impact.
+- Please describe any Community facing impact of this change. This can be positive or negative impact.
 
 # Review Checklist 
 - [ ] JIRA number/GitHub Issue added to PR
