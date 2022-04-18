@@ -21,7 +21,7 @@ name: CORTX inclusive words scan
 on:
   # Trigger the workflow on pull request labeled as cla-signed
   # and synchronize for the main branch
-  pull_request_target:
+  pull_request:
     types: [ opened, synchronize ]
     branches:
       - main
@@ -31,14 +31,13 @@ jobs:
   # Let's start the alex to scan
   alex:
     name: Alex report
-    # Label alex will trigger the workflow without creating new PR. Useful for debugging. 
     #if: ${{ github.event.label.name == 'alex' || github.event.action == 'synchronize' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: Seagate/action-alex@v1
         with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           filter_mode: added
           reporter: github-pr-review
           fail_on_error: true
